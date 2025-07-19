@@ -1,0 +1,33 @@
+
+use practice
+CREATE TABLE shops (
+    shop_id INT PRIMARY KEY,
+    shop_name VARCHAR(100),
+    shop_address VARCHAR(100)
+);
+
+-- Insert sample shop data
+INSERT INTO shops (shop_id, shop_name, shop_address) VALUES
+(1, 'skr', 'Chennai'),
+(2, 'shark', 'Kerala'),
+(3, 'pvr', 'Kanchipuram'),
+(4, 'com', 'Madurai'),
+(5, 'kmn', 'Tirunelveli');
+
+CREATE TABLE website (
+    web_id INT PRIMARY KEY,
+    web_name VARCHAR(100),
+    shop_id INT,
+    CONSTRAINT fk_shop FOREIGN KEY (shop_id) REFERENCES shops(shop_id)
+);
+
+-- Insert sample website data
+INSERT INTO website (web_id, web_name, shop_id) VALUES
+(101, 'www.skr.com', 1),
+(102, 'www.shark.com', 2),
+(103, 'www.pvr.com', 3),
+(104, 'www.com.com', 4),
+(105, 'www.kmn.com', 5);
+
+select * from shops
+select * from website
